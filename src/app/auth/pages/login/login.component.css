@@ -1,0 +1,26 @@
+.login-form{
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  padding: 15px;
+  margin: auto;
+  top: 40%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 20px;
+}

@@ -11,45 +11,44 @@
         </div>
 
         <div class="col">
-          <form [formGroup]="loginForm" (ngSubmit)="login()" autocomplete="off">
+          <form nz-form [formGroup]="loginForm" (ngSubmit)="login()" autocomplete="off">
 
-            <div class="form-floating mb-3">
-              <input type="email"
-                     class="form-control"
-                     id="floatingInput"
-                     placeholder="name@example.com"
-                     formControlName="email"
-              >
-              <label for="floatingInput">Email address</label>
-            </div>
+            <nz-form-item>
+              <nz-form-control nzErrorTip="Please input your username!">
+                <nz-input-group nzPrefixIcon="user">
+                  <input type="text" nz-input formControlName="email" placeholder="Username"/>
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
 
-            <div class="form-floating">
-              <input type="password"
-                     class="form-control"
-                     id="floatingPassword"
-                     placeholder="Password"
-                     formControlName="password"
-              >
-              <label for="floatingPassword">Password</label>
-            </div>
+            <nz-form-item>
+              <nz-form-control nzErrorTip="Please input your password!">
+                <nz-input-group nzPrefixIcon="lock">
+                  <input type="password" nz-input formControlName="password" placeholder="Password"/>
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
 
-            <div class="form-check mt-3">
-              <input class="form-check-input"
-                     type="checkbox" value=""
-                     id="flexCheckDefault"
-                     formControlName="remember"
-              >
-              <label class="form-check-label" for="flexCheckDefault">
-                Remember me
-              </label>
-            </div>
+            <nz-form-item>
+              <nz-form-control>
+                <label nz-checkbox formControlName="remember">Remember me</label>
+              </nz-form-control>
+            </nz-form-item>
 
-            <div class="d-grid gap-2">
-              <button type="submit"
-                      class="btn btn-primary float-end mt-3 ">Login</button>
-            </div>
+            <nz-form-item>
+              <nz-form-control>
+                <button nz-button
+                        nzType="primary"
+                        nzSize="large" nzBlock
+                        [nzLoading]="loading"
+                        type="submit"
+                        [disabled]="!loginForm.valid"
+                >Login
+                </button>
+              </nz-form-control>
+            </nz-form-item>
 
-            <a href="#" class="mt-3">Forgot your password?</a>
+            <a href="#">Forgot your password?</a>
 
           </form>
         </div>

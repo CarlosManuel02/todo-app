@@ -10,6 +10,7 @@ import { registerLocaleData } from '@angular/common';
 import es from '@angular/common/locales/es';
 import { FormsModule } from '@angular/forms';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import {NzIconModule} from "ng-zorro-antd/icon";
 
 registerLocaleData(es);
 
@@ -21,6 +22,7 @@ registerLocaleData(es);
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    NzIconModule,
     FormsModule
   ],
   providers: [

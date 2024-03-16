@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {AuthService} from "../../services/auth.service";
+import {NzMessageService} from "ng-zorro-antd/message";
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,8 @@ export class LoginComponent implements OnInit {
   constructor(
     public fb: FormBuilder,
     public authService: AuthService,
-    public router: Router
+    public router: Router,
+    public message: NzMessageService
   ) {
   }
 
@@ -31,10 +33,17 @@ export class LoginComponent implements OnInit {
     if (email != null && password != null) {
       this.authService.login(email, password)
         .subscribe(resp => {
-          if (resp) {
+          if (resp.status == 200) {
             this.loading = false;
-            this.router.navigateByUrl('/dashboard');
+            this.message.success('Login successful');
+            this.router.navigateByUrl('/todos/dashboard');
+          } else {
+            this.loading = false;
+            this.message.error(resp.message);
           }
+        }, (e) => {
+          console.log(e)
+
         })
     }
 
@@ -43,6 +52,11 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     localStorage.getItem('remember') && this.loginForm.patchValue({
       email: localStorage.getItem('email'), remember: true
+    })
+
+    this.loginForm.reset({
+      email: "carlos@example.com",
+      password: "12345678",
     })
   }
 

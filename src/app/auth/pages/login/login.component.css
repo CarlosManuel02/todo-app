@@ -11,6 +11,13 @@
   border-radius: 10px;
   border: 1px solid #e0e0e0;
 }
+.login-form nz-input-group {
+  margin-bottom: 15px;
+}
+
+.login-form, button{
+  margin-top: 10px;
+}
 
 h1 {
   text-align: center;
@@ -23,4 +30,10 @@ img {
   height: auto;
   display: block;
   margin: 0 auto 20px;
+}
+
+form a{
+  margin-top: 15px;
+  display: block;
+  text-decoration: none;
 }
